@@ -38,7 +38,7 @@ function multiply(a,b){ //eslint-disable-line
 }
 
 // TODO: Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -55,11 +55,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // TODO: Write your code here
 function sumAndMultiply(a,b,c){ //eslint-disable-line
-
+  var newSum = sum(a,b);
+  var newerSum = sum(newSum[0],c);
+  var newProduct = multiply(a,b);
+  var newerProduct = multiply(newProduct[0], c);
+  var thirdElement = (a + ' and ' + b + ' and ' + c + ' sum to ' + newerSum[0] + '.');
+  var fourthElement = ('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + newerProduct[0] + '.');
+  return [newerSum[0], newerProduct[0], thirdElement, fourthElement];
 }
 
 // TODO: Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -77,11 +83,15 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2,3,4]; //eslint-disable-line
 
 function sumArray(testArray){ //eslint-disable-line
-
+  var newArraySum = 0;
+  for (var i = testArray.length - 1; i >= 0; i--) {
+    newArraySum = sum(newArraySum, testArray[i])[0];
+  }
+  return [newArraySum, testArray.toString() + ' was passed in as an array of numbers, and ' + newArraySum + ' is their sum.'];
 }
 
 // TODO: Here is the test for sumArray(); uncomment it to run it
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
