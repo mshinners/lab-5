@@ -107,10 +107,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(testArray){ //eslint-disable-line
-
+  var newArrayProd = 1;
+  for (var i = testArray.length - 1 ; i >= 0; i--) {
+    newArrayProd = multiply(newArrayProd, testArray[i])[0];
+  }
+  console.log(testArray);
+  console.log(newArrayProd);
+  return [newArrayProd, 'The numbers ' + testArray.toString() + ' have a product of ' + newArrayProd + '.'];
 }
-
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(2,3,4);
+testMultiplyArray(2,3,4);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
