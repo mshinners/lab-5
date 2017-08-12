@@ -11,11 +11,13 @@ Test this function by hand in the console to get it working, and when you think 
 For TODO item, be sure to change it to say DONE when you have successfully completed the task*/
 
 // TODO: Write your code here
+var sumMsg = document.getElementById('sum');
 function sum(a,b){ //eslint-disable-line
   var result = a + b;
   var output = 'The sum of ' + a + ' and ' + b + ' is ' + result + '.';
   return [result, output];
 }
+sumMsg.innerText = sum(4, 7)[1];
 
 // TODO: Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
@@ -31,11 +33,13 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // TODO: Write your code here
+var multiplyMsg = document.getElementById('multiply');
 function multiply(a,b){ //eslint-disable-line
   var product = a * b;
   var output = 'The product of ' + a + ' and ' + b + ' is ' + product + '.';
   return [product, output];
 }
+multiplyMsg.innerText = multiply(5, 9)[1];
 
 // TODO: Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
@@ -54,6 +58,8 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // TODO: Write your code here
+var sumAndMultiplyMsg = document.getElementById('sumAndMultiply');
+var sumAndMultiply2Msg = document.getElementById('sumAndMultiply2');
 function sumAndMultiply(a,b,c){ //eslint-disable-line
   var newSum = sum(a,b);
   var newerSum = sum(newSum[0],c);
@@ -61,8 +67,13 @@ function sumAndMultiply(a,b,c){ //eslint-disable-line
   var newerProduct = multiply(newProduct[0], c);
   var thirdElement = (a + ' and ' + b + ' and ' + c + ' sum to ' + newerSum[0] + '.');
   var fourthElement = ('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + newerProduct[0] + '.');
+  sumAndMultiplyMsg.innerText = thirdElement;
+  sumAndMultiply2Msg.innerText = fourthElement;
   return [newerSum[0], newerProduct[0], thirdElement, fourthElement];
 }
+
+// sumAndMultiplyMsg.innerText = sum(4, 7, 5)[2];
+// sumAndMultiply2Msg.innerText = multiply(4, 7, 5)[3];
 
 // TODO: Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
@@ -81,7 +92,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // TODO: Write your code here
 var testArray = [2,3,4]; //eslint-disable-line
-
+var sumArrayMsg = document.getElementById('sumArray');
 function sumArray(testArray){ //eslint-disable-line
   var newArraySum = 0;
   for (var i = testArray.length - 1; i >= 0; i--) {
@@ -89,6 +100,7 @@ function sumArray(testArray){ //eslint-disable-line
   }
   return [newArraySum, testArray.toString() + ' was passed in as an array of numbers, and ' + newArraySum + ' is their sum.'];
 }
+sumArrayMsg.innerText = sumArray([2, 3, 4])[1];
 
 // TODO: Here is the test for sumArray(); uncomment it to run it
 testSumArray(testArray);
@@ -106,15 +118,15 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
+var multiplyArrayMsg = document.getElementById('multiplyArray');
 function multiplyArray(testArray){ //eslint-disable-line
   var newArrayProd = 1;
   for (var i = testArray.length - 1 ; i >= 0; i--) {
     newArrayProd = multiply(newArrayProd, testArray[i])[0];
   }
-  console.log(testArray);
-  console.log(newArrayProd);
   return [newArrayProd, 'The numbers ' + testArray.toString() + ' have a product of ' + newArrayProd + '.'];
 }
+multiplyArrayMsg.innerText = multiplyArray([2, 3, 4])[1];
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyArray(2,3,4);
 
